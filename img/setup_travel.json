@@ -1,0 +1,42 @@
+[
+    {
+      "type": "text",
+      "text": "很好的選擇!! 那我們來選擇目的地吧!"
+    },
+    {
+      "type": "template",
+      "altText": "this is a buttons template",
+      "template": {
+        "type": "buttons",
+        "actions": [
+          {
+            "type": "postback",
+            "label": "台灣北部",
+            "text": "台灣北部",
+            "data": "C&台灣北部"
+          },
+          {
+            "type": "postback",
+            "label": "台灣中部",
+            "text": "台灣中部",
+            "data": "D&台灣中部"
+          },
+          {
+            "type": "postback",
+            "label": "台灣南部",
+            "text": "台灣南部",
+            "data": "E&台灣南部"
+          },
+          {
+            "type": "postback",
+            "label": "台灣東部",
+            "text": "台灣東部",
+            "data": "F&台灣東部"
+          }
+        ],
+        "title": "設定目的地: ",
+        "text": "先從大區域開始選"
+      }
+    }
+    ]
+    
