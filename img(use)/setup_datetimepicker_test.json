@@ -1,0 +1,23 @@
+[
+  {
+
+    "type": "template",
+    "altText": "this is a buttons template",
+    "template": {
+        "type": "buttons",
+        "Title": "tell me the schedule for the vacant",
+        "text": "預定出發日期",
+        "actions": [
+            {
+              "type": "datetimepicker",
+              "Label": "選擇預定出發日期",
+              "mode": "date",
+              "data": "action=datetemp&selectId=1",
+              "initial": "2021-10-30",
+              "min": "2021-10-20",
+              "max": "2021-11-20"
+            }
+        ]
+    }
+}]
+    

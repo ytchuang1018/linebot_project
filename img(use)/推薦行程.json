@@ -1,0 +1,143 @@
+[
+    {
+        "type": "imagemap",
+        "baseUrl": "https://0ac3-34-81-221-17.ap.ngrok.io/img/imagemap",
+        "altText": "This is an imagemap",
+        "baseSize": {
+          "width": 1040,
+          "height": 928
+        },
+        "actions": [
+          {
+            "type": "postback",
+            "area": {
+              "x": 0,
+              "y": 0,
+              "width": 346,
+              "height": 234
+            },
+            "text": "美食",
+            "data": "folder=美食"
+          },
+          {
+            "type": "postback",
+            "area": {
+              "x": 346,
+              "y": 0,
+              "width": 348,
+              "height": 235
+            },
+            "text": "文化",
+            "data": "folder=文化"
+          },
+          {
+            "type": "postback",
+            "area": {
+              "x": 696,
+              "y": 0,
+              "width": 340,
+              "height": 232
+            },
+            "text": "溫泉",
+            "data": "folder=溫泉"
+          },
+          {
+            "type": "postback",
+            "area": {
+              "x": 2,
+              "y": 233,
+              "width": 341,
+              "height": 229
+            },
+            "text": "樂活",
+            "data": "folder=樂活"
+          },
+          {
+            "type": "postback",
+            "area": {
+              "x": 344,
+              "y": 238,
+              "width": 348,
+              "height": 228
+            },
+            "text": "離島",
+            "data": "folder=離島"
+          },
+          {
+            "type": "postback",
+            "area": {
+              "x": 699,
+              "y": 236,
+              "width": 335,
+              "height": 223
+            },
+            "text": "生態",
+            "data": "folder=生態"
+          },
+          {
+            "type": "postback",
+            "area": {
+              "x": 7,
+              "y": 466,
+              "width": 331,
+              "height": 228
+            },
+            "text": "鐵道",
+            "data": "folder=鐵道"
+          },
+          {
+            "type": "postback",
+            "area": {
+              "x": 350,
+              "y": 467,
+              "width": 339,
+              "height": 225
+            },
+            "text": "夜市",
+            "data": "folder=夜市"
+          },
+          {
+            "type": "postback",
+            "area": {
+              "x": 707,
+              "y": 468,
+              "width": 321,
+              "height": 224
+            },
+            "text": "原鄉",
+            "data": "folder=原鄉"
+          },
+          {
+            "type": "postback",
+            "area": {
+              "x": 5,
+              "y": 706,
+              "width": 338,
+              "height": 218
+            },
+            "text": "樂齡親子",
+            "data": "folder=樂齡親子"
+          },
+          {
+            "type": "uri",
+            "area": {
+              "x": 351,
+              "y": 703,
+              "width": 345,
+              "height": 225
+            },
+            "linkUri": "https://www.taiwan.net.tw/m1.aspx?sNo=0000108"
+          },
+          {
+            "type": "uri",
+            "area": {
+              "x": 703,
+              "y": 699,
+              "width": 330,
+              "height": 225
+            },
+            "linkUri": "https://tw.news.yahoo.com/travel"
+          }
+        ]
+      }
+]

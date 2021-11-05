@@ -1,0 +1,44 @@
+[
+  {
+    "type": "text",
+    "text": "您好, 感謝您成為 就i趴趴GO 的好友 ✿"
+  },
+  {
+    "type": "text",
+    "text": "這裡的目的是為了方便大家建立旅程，以下的推薦旅程是從交通部觀光局的網站上爬下來的 \n僅供參考"
+  },
+  {
+    "type":"text",
+    "text":"\n☆ 操作說明: \n\n＊ 建立旅程: 根據旅遊的種類查詢，從推薦清單中來加入行程\n＊ 查詢清單: 可以查詢建好的旅遊清單\n＊ 歷史旅程: 察看已完成的旅程\n＊ 分攤計算: 幫助旅費分攤計算\n"
+  },
+  {
+    "type": "template",
+    "altText": "this is a buttons template",
+    "template": {
+      "type": "buttons",
+      "actions": [
+        {
+          "type": "postback",
+          "label": "自由行",
+          "text": "自由行",
+          "data": "tag=自由行"
+        },
+        {
+          "type": "postback",
+          "label": "推薦行程",
+          "text": "推薦行程",
+          "data": "tag=推薦行程"
+        },
+        {
+          "type": "postback",
+          "label": "跟團",
+          "text": "跟團",
+          "data": "tag=跟團"
+        }
+      ],
+      "thumbnailImageUrl": "https://travel.ulifestyle.com.hk/cms/news_photo/1024x576/20200907133900__E9878EE69FB3.jpg",
+      "title": "悶壞了嗎？一起來準備好下個旅程吧!!!",
+      "text": "你想怎麼安排呢?"
+    }
+  }
+]

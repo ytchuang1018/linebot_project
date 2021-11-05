@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <title>cost split</title>
+    <style type='text/css'>
+    table td {width:100px} 
+    </style>
+</head>
+
+<body>
+    <br />
+    <form action=''>
+        <label >新增旅伴</label>
+        <input id='input_friend' name='input' type='text'>
+        <input type="button" value=增加 onclick="addtd()"><br />
+    </form>
+    <br />
+    <form action=''>
+        <label >新增費用</label>
+        <input id='cost_item' type='text' placeholder='請輸入費用項目'>
+        <input id='cost_money' type='number' min='0' placeholder='請輸入花費金額'>
+        <select id='select'>
+            <option value='你'>你</option>
+        </select>
+        <input type='button' value=增加 onclick="addtr()"><br />
+    </form>
+    <br />
+    <hr />
+    <br />
+    <table border="1" id='tab'>
+        <tr>
+            <td>費用項目</td>
+            <td>費用</td>
+            <td>付款者</td>
+            <td>你</td>
+        </tr>
+    </table>
+    <br />
+    <input type='button' value=計算分攤金額 onclick="calculate()"><br />
+    <br />
+    <hr />
+    <br />
+    <div id="displayInfo"></div>
+
+    <script src='https://static.line-scdn.net/liff/edge/2.1/sdk.js'></script>
+    <script>
+
+        //增加列的方法, 增加人員
+        function addtd(){
+            if (document.getElementById("input_friend").value.length != 0){
+                var tab=document.getElementById("tab"); //獲得表格
+                var colsNum=tab.rows[0].cells.length;   //表格的列數
+                var rowsNum=tab.rows.length;//表格當前的行數
+                tab.rows[0].insertCell(colsNum);//插入列
+                tab.rows[0].cells[colsNum].innerHTML=document.getElementById("input_friend").value;
+
+                for (var i=1;i<rowsNum;i++){
+                    tab.rows[i].insertCell(colsNum);//插入列
+                    tab.rows[i].cells[colsNum].innerHTML='<input type="checkbox" name="'+tab.rows[0].cells[colsNum].innerHTML+'" id="row'+i+'_'+tab.rows[0].cells[colsNum].innerHTML+'" checked> '+tab.rows[0].cells[colsNum].innerHTML;
+                }
+
+                var opt = document.createElement('option');
+                opt.index = document.getElementById('select').options.length+1;
+                opt.value = document.getElementById("input_friend").value;
+                opt.text = document.getElementById("input_friend").value;
+                document.getElementById('select').appendChild(opt);
+            }
+        }
+
+        //增加行的方法
+        function addtr(){
+            var tab=document.getElementById("tab"); //獲得表格
+            var colsNum=tab.rows[0].cells.length;   //表格的列數
+            var rowsNum=tab.rows.length;//表格當前的行數
+
+            tab.insertRow(rowsNum);
+            tab.rows[rowsNum].insertCell(0);//插入列
+            tab.rows[rowsNum].cells[0].innerHTML=document.getElementById("cost_item").value;
+            tab.rows[rowsNum].insertCell(1);//插入列
+            tab.rows[rowsNum].cells[1].innerHTML=document.getElementById("cost_money").value;
+            tab.rows[rowsNum].insertCell(2);//插入列
+            tab.rows[rowsNum].cells[2].innerHTML=document.getElementById('select').value;
+
+            for(var i=3;i<colsNum; i++){
+                tab.rows[rowsNum].insertCell(i);//插入列
+                tab.rows[rowsNum].cells[i].innerHTML='<input type="checkbox" name="'+tab.rows[0].cells[i].innerHTML+'" id="row'+rowsNum+'_'+tab.rows[0].cells[i].innerHTML+'" checked> '+tab.rows[0].cells[i].innerHTML;
+            }
+        }
+
+        function calculate(){
+            var tab=document.getElementById("tab"); //獲得表格
+            var colsNum=tab.rows[0].cells.length;   //表格的列數
+            var rowsNum=tab.rows.length;//表格當前的行數
+            document.getElementById('displayInfo').innerHTML=''
+            
+            for (var i=3;i<colsNum-1;i++){ //從第一個人開始1,2,3,
+                for (var j=i+1;j<colsNum;j++){ //1-2,1-3,2-3....
+                    var total_count=0
+                    
+                    for (var n=1;n<rowsNum;n++){ //判斷每行
+                       if (tab.rows[n].cells[2].innerHTML == tab.rows[0].cells[i].innerHTML){ //找付款者是i
+                            if (document.getElementById('row'+n+'_'+tab.rows[0].cells[j].innerHTML).checked){
+                                var count=0;
+                                for (var m=3;m<colsNum;m++){ //判斷幾人分攤
+                                    if (document.getElementById('row'+n+'_'+tab.rows[0].cells[m].innerHTML).checked){
+                                        count++;
+                                    }
+                                }
+                                total_count+=tab.rows[n].cells[1].innerHTML/count;
+                            }
+                        }
+                        if (tab.rows[n].cells[2].innerHTML == tab.rows[0].cells[j].innerHTML){ //找付款者是j
+                            var count=0;
+                            for (var m=3;m<colsNum;m++){ //判斷幾人分攤
+                                if (document.getElementById('row'+n+'_'+tab.rows[0].cells[m].innerHTML).checked){
+                                    count++;
+                                }
+                            }
+                            total_count-=tab.rows[n].cells[1].innerHTML/count;
+                        }
+                    }
+
+                    if (total_count>0){
+                        document.getElementById('displayInfo').innerHTML+= tab.rows[0].cells[j].innerHTML+'再給'+tab.rows[0].cells[i].innerHTML+' '+total_count.toFixed(0)+ "<br />";
+                    }else if(total_count<0){
+                        document.getElementById('displayInfo').innerHTML+= tab.rows[0].cells[i].innerHTML+' 再給 '+tab.rows[0].cells[j].innerHTML+' '+Math.abs(total_count.toFixed(0))+ "<br />";
+                    }else {}
+                    
+                }   
+            }
+        }
+
+        function initializeLiff(myLiffId) {
+            liff
+                .init({
+                    liffId: myLiffId
+                })
+                .then(() => {
+                    // start to use LIFF's api
+                    initializeApp();
+                })
+                .catch((err) => {
+                });
+        }
+
+        initializeLiff('1656585017-390pNGKy');
+
+        function postData(url, data) {
+            return fetch(url, {
+                body: JSON.stringify(data),
+                cache: 'no-cache',
+                headers: {
+                    'user-agent': 'Mozilla/4.0 MDN Example',
+                    'content-type': 'application/json'
+                },
+                method: 'POST',
+                mode: 'cors',
+            })
+                .then(response => response.json()) // 輸出成 json
+        }
+
+        /*document.getElementById('add-btn').addEventListener('click', function () {
+            if (!liff.isInClient()) {
+                sendAlertIfNotInClient();
+            } else {
+                const Input = parseInt(document.getElementById('input').value);
+                postData('https://endipoint_url/currency_exchange', { twd: twdInput })
+                    .then(data => {
+                        alert('1', data);
+                        alert('1');
+                        liff.sendMessages([{
+                            'type': 'text',
+                            'text': '你有這麼多美金：' + data['result']
+                        }]).then(function () {
+                            window.alert('Message sent');
+                        }).catch(function (error) {
+                            window.alert('Error sending message: ' + error);
+                        });
+                        liff.closeWindow();
+                    }) // JSON from `response.json()` call
+                    .catch(error => alert(error))
+            }
+        });*/
+
+       
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+{
+  "size": {
+    "width": 2500,
+    "height": 843
+  },
+  "selected": true,
+  "name": "主要的功能選單",
+  "chatBarText": "主功能選單",
+  "areas": [
+    {
+      "bounds": {
+        "x": 50,
+        "y": 94,
+        "width": 439,
+        "height": 648
+      },
+      "action": {
+        "type": "postback",
+        "text": "建立行程",
+        "data": "tag=建立行程"
+      }
+    },
+    {
+      "bounds": {
+        "x": 537,
+        "y": 100,
+        "width": 451,
+        "height": 636
+      },
+      "action": {
+        "type": "postback",
+        "text": "查詢清單",
+        "data": "tag=查詢清單"
+      }
+    },
+    {
+      "bounds": {
+        "x": 1014,
+        "y": 103,
+        "width": 459,
+        "height": 615
+      },
+      "action": {
+        "type": "postback",
+        "text": "歷史旅程",
+        "data": "tag=歷史旅程"
+      }
+    },
+    {
+      "bounds": {
+        "x": 1520,
+        "y": 115,
+        "width": 440,
+        "height": 606
+      },
+      "action": {
+        "type": "uri",
+        "uri": "https://liff.line.me/1656585017-390pNGKy"
+      }
+    }
+    ,
+    {
+      "bounds": {
+        "x": 1994,
+        "y": 108,
+        "width": 431,
+        "height": 606
+      },
+      "action": {
+        "type": "postback",
+        "text": "操作說明",
+        "data": "tag=操作說明"
+      }
+    }
+  ]
+}
