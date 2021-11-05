@@ -1,37 +1,36 @@
-## Welcome to GitHub Pages
+## LineBot Project
+在疫情解封後, 大家對於國旅有相當大的興趣, 但建立行程會花很多時間, 
 
-You can use the [editor on GitHub](https://github.com/ytchuang1018/linebot_project/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+因此, 這個機器人希望可以幫忙大家快速建立一個協助用戶快速建立行旅程, 並解決分攤旅費問題
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### 加入好友
+就i趴趴GO 
+@008xyyhr
 
-### Markdown
+https://liff.line.me/1645278921-kWRPP32q/?accountId=008xyyhr
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### 建立流程
+主要以python3撰寫程式, 整個程式在GCP部署, 在heroku部署旅費分攤的html
 
-```markdown
-Syntax highlighted code block
+1. 資料準備: 爬到台灣交通部觀光局上的推薦行程, 可以用分類行程來快速找到旅行目的
 
-# Header 1
-## Header 2
-### Header 3
+2. linebot設計: 
+  * 圖文選單: 提供主功能選單讓大家可以快速找到功能
+  * 影像地圖: 把先前網路上爬到的推薦行程的分類以影像地圖呈現, 可以直接點選
+  * flex訊息: 加入喜歡的行程後, 進入日期選擇, 作成旅行小卡
+  * 多頁訊息: 用戶輸入關鍵字或是點選按鈕, 機器人就會自動回覆
+  * LIFF應用: 連接旅費分攤的網頁
+  * 歷史旅程:
+  * 查詢旅程:
 
-- Bulleted
-- List
+3. 旅費分攤的網頁: 用html寫出網頁, 利用javascript可以讓用戶可以新增旅伴及費用項目, 幫忙計算出旅費的分攤, 再部署到heroku
 
-1. Numbered
-2. List
+4. GCP服務: 
+  * google shell: 撰寫程式
+  * google cloud storage: 爬蟲資料, 給用戶看到的行程, 及用戶加入的行程都存在storage
+  * google cloud firestore: 存用戶資料
+  * google cloud run: 部署linebot
 
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/ytchuang1018/linebot_project/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+### 待完成
+1. 加入自由行: 更彈性的調整行程
+2. 加入跟團: 讓老人家可以更快找到跟團行程
