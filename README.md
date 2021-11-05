@@ -9,7 +9,7 @@
 就i趴趴GO 
 @008xyyhr
 
-https://liff.line.me/1645278921-kWRPP32q/?accountId=008xyyhr
+[就i趴趴GO](https://liff.line.me/1645278921-kWRPP32q/?accountId=008xyyhr)
 
 ### 建立流程
 主要以python3撰寫程式, 整個程式在GCP部署, 在heroku部署旅費分攤的html
