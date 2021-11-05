@@ -1,4 +1,6 @@
 ## LineBot Project
+[網頁版說明](https://ytchuang1018.github.io/linebot_project/)
+
 在疫情解封後, 大家對於國旅有相當大的興趣, 但建立行程會花很多時間, 
 
 因此, 這個機器人希望可以幫忙大家快速建立一個協助用戶快速建立行旅程, 並解決分攤旅費問題
