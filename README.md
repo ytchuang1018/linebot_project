@@ -30,6 +30,7 @@
    * 刪除行程: 可以刪除進行中的行程小卡，己完成的就設定無法刪除
 
 3. 旅費分攤的網頁: 用html寫出網頁, 利用javascript可以讓用戶可以新增旅伴及費用項目, 幫忙計算出旅費的分攤, 再部署到heroku
+   heroku login->heroku git:remote -a project/git remote add heroku git@heroku.com:project.git -> git push heroku master
 
 4. GCP服務: 
    * google shell: 撰寫程式
